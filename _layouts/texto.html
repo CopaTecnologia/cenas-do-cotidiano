@@ -1,0 +1,21 @@
+---
+layout: compress
+---
+
+<a href="#" class="btn-close">×</a>
+
+<div class="polaroid in"><img src="{{ site.baseurl }}/img{{ page.id }}.jpg">
+    <a data-href="#{{ page.id }}">{{ page.title }}</a>
+    <em>{{ page.author }}</em>
+</div>
+
+<div class="post-inner">
+    <div class="wrapper">
+    
+        <h2>{{ page.title }}</h2>
+        <p><em>{{ page.author }}</em></p>
+    
+        {{ content }}
+    
+    </div>
+</div>

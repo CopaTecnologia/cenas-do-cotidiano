@@ -1,0 +1,26 @@
+---
+layout: default
+---
+
+<header class="ld-header">
+	<h4 class="ld-title">Cenas do cotidiano</h4>
+</header>
+
+<section class="ld-post"></section>
+
+<section class="ld-posts">
+	<div class="wrapper">
+		<img src="{{ site.baseurl }}/img/Colagem-de-fotos.png" alt="Cenas do cotidiano">
+
+		{% for post in site.textos %}
+
+		<div class="polaroid">
+			<img src="{{ site.baseurl }}/img{{ post.id }}.jpg">
+			<a href="#{{ post.id }}">{{ post.title }}</a>
+			<em>{{ post.author }}</em>
+		</div>
+
+		{% endfor %}
+
+	</div>
+</section>

@@ -1,0 +1,45 @@
+body
+	font-family: 'Source Sans Pro', sans-serif
+	background-color: $bg-color
+	overflow: hidden
+	box-sizing: border-box
+
+	*
+		box-sizing: inherit
+
+a
+	color: $link-color
+
+em
+	color: $muted-color
+
+img
+	max-width: 100%
+
+.btn-close
+	position: absolute
+	top: 1em
+	right: 1em
+	text-decoration: none
+	font-size: 3em
+
+.polaroid
+	position: relative
+	display: inline-block
+	vertical-align: middle
+	width: 240px
+	margin: auto
+	padding: 15px
+	text-align: center
+	line-height: 1.5
+	background-color: white
+	box-shadow: 0 3px 7px 0 rgba(0, 0, 0, .5)
+	z-index: 1
+	transition: .3s ease-in-out
+
+	& > *
+		display: block
+
+	img
+		max-width: 100% 
+		margin-bottom: 1em

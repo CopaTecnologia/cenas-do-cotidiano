@@ -1,0 +1,167 @@
+%transition
+	transition: .6s ease-in-out
+%transition-delay
+	transition-delay: .2s
+
+.ld-header
+	position: fixed
+	top: 0
+	right: 0
+	left: 0
+	z-index: 99
+	background-color: $blue-title
+	color: white
+
+.ld-title
+	float: left
+	margin: 0
+	padding-left: .5em
+	margin-right: 1em
+	height: $top-height
+	line-height: $top-height
+	font-size: 2em
+	white-space: nowrap
+	overflow: hidden
+	text-overflow: ellipsis
+
+.ld-posts
+	position: fixed
+	top: $top-height
+	left: 0
+	right: 0
+	bottom: 0
+	text-align: center
+	background: url(../img/cork.jpg) center
+	transform: perspective(500px)
+	transform-origin: 0 50%
+	@extend %transition
+
+	.wrapper
+		position: absolute
+		width: 100%
+		height: 100%
+		overflow: auto
+		padding-top: 20px
+		padding-bottom: 20px
+		padding-left: 10%
+		padding-right: 10%
+	
+		@media (max-width: 64em)
+			padding-left: 3%
+			padding-right: 3%
+
+	.polaroid
+		margin: 10px
+		max-width: 40%
+
+		@media (max-width: 64em)
+			padding: 10px
+
+		@media (max-width: 30em)
+			padding: 5px
+
+		&:before, &:after
+			content: ''
+			display: block
+			width: 0
+			height: 0
+			padding: 15px
+			background-color: #FF7F50
+			position: absolute
+			border-radius: 50px
+			box-shadow: -2px 2px 5px 0 rgba(0,0,0,.2), inset -2px 2px 5px 0 rgba(255,255,255,.5)
+		&:before
+			top: -10px
+			right: 10px
+		&:after
+			top: -15px
+			right: 8px
+			padding: 12px
+
+.ld-post
+	position: fixed
+	top: $top-height
+	left: auto
+	right: 0
+	bottom: 0
+	z-index: 999
+	width: 70%
+	background-color: white
+	transform: translate(100%)
+	@extend %transition
+
+	@media (max-width: 30em)
+		overflow: auto
+		width: 100%
+
+	.post-inner
+		width: 100%
+		height: 100%
+		overflow: auto
+		@media (max-width: 30em)
+			height: auto
+			overflow: visible
+
+	.wrapper
+		margin-left: auto
+		margin-right: auto
+		max-width: 46em
+		padding: 5em
+		opacity: 0
+		@extend %transition
+
+		@media (max-width: 64em)
+			padding: 3em
+
+		@media (max-width: 30em)
+			padding: 1em
+
+	.polaroid
+		position: absolute
+		top: 10%
+		right: 100%
+		width: 460px
+		max-width: 40%
+
+		@media (max-width: 64em)
+			padding: 10px
+
+		@media (max-width: 30em) 
+			max-width: 70%
+			position: relative
+			opacity: 1
+			top: -5%
+			left: 0
+			right: auto
+
+	&:not(.open)
+		~ .ld-posts
+			@extend %transition-delay
+		.polaroid
+			display: none
+
+	&.open
+		
+		&, .wrapper
+			z-index: 9
+			opacity: 1
+			transform: translate(0)
+			@extend %transition-delay
+
+		~ .ld-posts
+			opacity: .5
+			overflow: hidden
+			transform: perspective(500px) rotateY(25deg)
+			transition-delay: 0
+
+		.polaroid
+			opacity: 0
+			animation: enter-picture 1s .5s ease-in-out forwards
+		
+		@keyframes enter-picture
+			0%
+				opacity: 0
+				transform: translateX(100%) rotateZ(0)
+			100%
+				opacity: 1
+				transform: translateX(0) rotateZ(-5deg)

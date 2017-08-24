@@ -1,0 +1,30 @@
+title: Cenas do cotidiano
+description: >
+  //
+baseurl: "/cenas-do-cotidiano"
+url: "http://copatecnologia.com.br"
+
+markdown: kramdown
+
+exclude:
+  - gulpfile.js
+  - README.md
+
+css:
+  style: compressed
+
+gems:
+  - jekyll-coffeescript
+
+collections:
+  textos:
+    output: true
+  
+
+defaults:
+  -
+    scope:
+      path: ""
+      type: textos
+    values:
+      layout: texto
